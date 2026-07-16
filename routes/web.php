@@ -17,3 +17,10 @@ Route::get('/api/info', function () {
         'version' => app()->version(),
     ]);
 });
+
+Route::get ('/products', function(){
+    return 'GET Request';
+});
+Route::post('/products', function(){
+    return 'POST Request';
+});
