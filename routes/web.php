@@ -21,6 +21,7 @@ Route::get('/api/info', function () {
 Route::get ('/products', function(){
     return 'GET Request';
 });
+
 Route::post('/products', function(){
     return 'POST Request';
 });
