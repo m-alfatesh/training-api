@@ -15,12 +15,17 @@ public function index(){
             [
                 'id' => 1,
                 'name' => 'Mohammed',
-                'email' => 'mohammed@exmaple.com'
+                'email' => 'mohammed@example.com'
             ], [
                 'id' => 2,
                 'name' => 'Ahmed',
                 'email' => 'ahmed@example.com'
-            ]
+            ],
+            [
+    'id' => 3,
+    'name' => 'Ali',
+    'email' => 'ali@example.com'
+]
         ]
     ]);
 }
