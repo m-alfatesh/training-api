@@ -1,7 +1,7 @@
 # Laravel Controllers Notes
 
 ## What is a Controller?
-
+    
 A Controller is a PHP class that handles incoming requests and contains the application logic. It acts as a bridge between Routes and the application logic.
 
 ---
