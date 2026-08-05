@@ -2,6 +2,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -24,9 +25,9 @@ Route::get('/api/info', function () {
         'version' => app()->version(),
     ]);
 });
-
+/*
 Route::get ('/products', function(){
-    return 'GET Request';
+   return 'GET Request';
 });
 
 Route::post('/products', function(){
@@ -47,13 +48,13 @@ Route::delete('/products', function(){
     return 'DELETE Request';
 })
 ;
-
+**/
 Route::get('/user/{name}', function($name) {
     return "Welcome $name";
 });
 
 Route::get('/products/{id}' , function($id){
-    return "Product ID: $id";
+ return "Product ID: $id";
 });
 
 Route::get('/order/{order}/item/{item}', function ($order, $item) {
@@ -112,3 +113,8 @@ Route::prefix('v1/users')->group(function () {
 
     Route::delete('/{id}', [UserController::class, 'destroy']);
 });
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::post('/products',[ProductController::class ,'store']);
+Route::put('/products/{id}', [ProductController::class,'update']);
+Route::delete('/products/{id}', [ProductController::class,'destroy']);
