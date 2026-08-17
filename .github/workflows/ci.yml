@@ -12,11 +12,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: CI Pipeline Started
-        run: echo "CI Pipeline Started"
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
-      - name: Show PHP version
-        run: php --version
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
 
-      - name: CI Pipeline Finished
-        run: echo "CI Pipeline Finished"
+      - name: Run tests
+        run: php artisan test
+
+      - name: Prepare Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          touch database/database.sqlite
+
+      - name: Run tests
+        run: php artisan test
