@@ -1,0 +1,22 @@
+name: CI Pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: CI Pipeline Started
+        run: echo "CI Pipeline Started"
+
+      - name: Show PHP version
+        run: php --version
+
+      - name: CI Pipeline Finished
+        run: echo "CI Pipeline Finished"
