@@ -18,5 +18,11 @@ jobs:
       - name: Show PHP version
         run: php --version
 
+    -  name: Simulate Failure
+        run: exit 1
+
+    -  name: CI Pipeline Finished
+        run: echo "CI Pipeline Finished"
+
       - name: CI Pipeline Finished
         run: echo "CI Pipeline Finished"
