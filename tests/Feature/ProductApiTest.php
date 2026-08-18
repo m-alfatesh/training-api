@@ -7,7 +7,7 @@ uses(RefreshDatabase::class);
 test('GET /products returns 200', function () {
     $response = $this->get('/api/products');
 
-    $response->assertStatus(500);
+    $response->assertStatus(200);
 });
 
 test('POST /products with invalid data returns 422', function () {
