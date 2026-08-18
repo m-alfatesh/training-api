@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  ci:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,3 +27,14 @@ jobs:
 
       - name: Run tests
         run: php artisan test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t laravel-training .
