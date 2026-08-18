@@ -73,3 +73,22 @@ git push origin main
 ## Biggest Challenge & How I Solved It
 
 The biggest issue was that the SQLite PHP extension wasn't installed initially, which caused two separate errors: first "could not find driver" when running the app, and then "no such table: sessions" after installing the extension, since the database migrations had failed silently during project creation. I solved it by installing the missing `php8.3-sqlite3` extension, then manually running `php artisan migrate` to create the required tables.
+
+
+## CI Pipeline
+
+The CI Pipeline runs in the following order:
+
+1. Checkout
+2. Install Dependencies
+3. Run Tests
+4. Build Docker Image
+
+The pipeline contains two main jobs:
+
+- `test`: Checks the Laravel application by installing dependencies and running tests.
+- `build`: Builds the Docker Image after the `test` job succeeds.
+
+The `build` job depends on the `test` job using `needs: test`.
+
+If the tests fail, the build job does not run.
