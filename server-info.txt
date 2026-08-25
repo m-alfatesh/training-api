@@ -1,0 +1,8 @@
+Server Information
+
+Operating System: Ubuntu 24.04.4 LTS
+CPU: 1 core
+RAM: 512 MB
+Storage: 8.7 GB
+Public IP: 142.93.240.227
+Private IP: 10.10.0.5
