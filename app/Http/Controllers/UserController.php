@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,12 +15,17 @@ public function index(){
             [
                 'id' => 1,
                 'name' => 'Mohammed',
-                'email' => 'mohammed@exmaple.com'
+                'email' => 'mohammed@example.com'
             ], [
                 'id' => 2,
                 'name' => 'Ahmed',
                 'email' => 'ahmed@example.com'
-            ]
+            ],
+            [
+    'id' => 3,
+    'name' => 'Ali',
+    'email' => 'ali@example.com'
+]
         ]
     ]);
 }
@@ -33,10 +39,11 @@ public function show($id)
             'id' => $id,
             'name' => 'Mohammed',
             'email' => 'mohammed@example.com'
+
         ]
     ]);
 }
-public function store(Request $request)
+public function store(StoreUserRequest $request)
 {
     return response()->json([
         'success' => true,
@@ -48,7 +55,7 @@ public function store(Request $request)
         ]
     ]);
 }
-public function update(Request $request, $id)
+public function update(UpdateUserRequest $request, $id)
 {
     return response()->json([
         'success' => true,
@@ -56,7 +63,8 @@ public function update(Request $request, $id)
         'data' => [
             'id' => $id,
             'name' => $request->name,
-            'email' => $request->email
+            'email' => $request->email,
+            'age' => $request->age
         ]
     ]);
 }
